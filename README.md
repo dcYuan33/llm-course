@@ -281,6 +281,7 @@ Here are notable topics that didn't fit into other categories. Some are establis
 * [Unsensor any LLM with abliteration](https://huggingface.co/blog/mlabonne/abliteration) by Maxime Labonne: Direct application of interpretability techniques to modify the style of a model.
 * [Intuitive Explanation of SAEs](https://adamkarvonen.github.io/machine_learning/2024/06/11/sae-intuitions.html) by Adam Karvonen: Article about how SAEs work and why they make sense for interpretability.
 * [Scaling test-time compute](https://huggingface.co/spaces/HuggingFaceH4/blogpost-scaling-test-time-compute) by Beeching et al.: Tutorial and experiments to outperform Llama 3.1 70B on MATH-500 with a 3B model.
+</details>
 
 ## 👷 The LLM Engineer
 
@@ -419,3 +420,4 @@ In addition to traditional security problems associated with software, LLMs have
 * [Prompt Injection Primer](https://github.com/jthack/PIPE) by Joseph Thacker: Short guide dedicated to prompt injection for engineers.
 * [LLM Security](https://llmsecurity.net/) by [@llm_sec](https://twitter.com/llm_sec): Extensive list of resources related to LLM security.
 * [Red teaming LLMs](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming) by Microsoft: Guide on how to perform red teaming with LLMs.
+</details>
