@@ -91,9 +91,6 @@ Before mastering machine learning, it is important to understand the fundamental
 📚 Resources:
 
 - [3Blue1Brown - The Essence of Linear Algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab): Series of videos that give a geometric intuition to these concepts.
-- [StatQuest with Josh Starmer - Statistics Fundamentals](https://www.youtube.com/watch?v=qBigTkBLU6g&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9): Offers simple and clear explanations for many statistical concepts.
-- [Seeing Theory](https://seeing-theory.brown.edu/): A visual introduction to probability and statistics from Brown University.
-- [Immersive Linear Algebra](https://immersivemath.com/ila/learnmore.html): Another visual interpretation of linear algebra.
 - [Khan Academy - Linear Algebra](https://www.khanacademy.org/math/linear-algebra): Great for beginners as it explains the concepts in a very intuitive way.
 - [Khan Academy - Calculus](https://www.khanacademy.org/math/calculus-1): An interactive course that covers all the basics of calculus.
 - [Khan Academy - Probability and Statistics](https://www.khanacademy.org/math/statistics-probability): Delivers the material in an easy-to-understand format.
@@ -111,11 +108,7 @@ Python is a powerful and flexible programming language that's particularly good 
 
 📚 Resources:
 
-- [Real Python](https://realpython.com/): A comprehensive resource with articles and tutorials for both beginner and advanced Python concepts.
-- [freeCodeCamp - Learn Python](https://www.youtube.com/watch?v=rfscVS0vtbw): Long video that provides a full introduction into all of the core concepts in Python.
-- [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/): Free digital book that is a great resource for learning pandas, NumPy, Matplotlib, and Seaborn.
 - [freeCodeCamp - Machine Learning for Everybody](https://youtu.be/i_LwzRVP7bg): Practical introduction to different machine learning algorithms for beginners.
-- [Udacity - Intro to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120): Free course that covers PCA and several other machine learning concepts.
 
 ---
 
@@ -130,10 +123,7 @@ Neural networks are a fundamental part of many machine learning models, particul
 
 📚 Resources:
 
-- [3Blue1Brown - But what is a Neural Network?](https://www.youtube.com/watch?v=aircAruvnKk): This video gives an intuitive explanation of neural networks and their inner workings.
-- [freeCodeCamp - Deep Learning Crash Course](https://www.youtube.com/watch?v=VyWAvY2CF9c): This video efficiently introduces all the most important concepts in deep learning.
 - [Fast.ai - Practical Deep Learning](https://course.fast.ai/): Free course designed for people with coding experience who want to learn about deep learning.
-- [Patrick Loeber - PyTorch Tutorials](https://www.youtube.com/playlist?list=PLqnslRFeH2UrcDBWF5mfPGpqQDSta6VK4): Series of videos for complete beginners to learn about PyTorch.
 
 ---
 
@@ -149,8 +139,6 @@ NLP is a fascinating branch of artificial intelligence that bridges the gap betw
 📚 Resources:
 
 - [Lena Voita - Word Embeddings](https://lena-voita.github.io/nlp_course/word_embeddings.html): Beginner-friendly course about concepts related to word embeddings.
-- [RealPython - NLP with spaCy in Python](https://realpython.com/natural-language-processing-spacy-python/): Exhaustive guide about the spaCy library for NLP tasks in Python.
-- [Kaggle - NLP Guide](https://www.kaggle.com/learn-guide/natural-language-processing): A few notebooks and resources for a hands-on explanation of NLP in Python.
 - [Jay Alammar - The Illustration Word2Vec](https://jalammar.github.io/illustrated-word2vec/): A good reference to understand the famous Word2Vec architecture.
 - [Jake Tae - PyTorch RNN from Scratch](https://jaketae.github.io/study/pytorch-rnn/): Practical and simple implementation of RNN, LSTM, and GRU models in PyTorch.
 - [colah's blog - Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/): A more theoretical article about the LSTM network.
@@ -159,6 +147,9 @@ NLP is a fascinating branch of artificial intelligence that bridges the gap betw
 ## 🧑‍🔬 The LLM Scientist
 
 This section of the course focuses on learning how to build the best possible LLMs using the latest techniques.
+
+<details>
+<summary>Toggle section (optional)</summary>
 
 ![](img/roadmap_scientist.png)
 
@@ -306,6 +297,9 @@ Here are notable topics that didn't fit into other categories. Some are establis
 
 This section of the course focuses on learning how to build LLM-powered applications that can be used in production, with a focus on augmenting models and deploying them.
 
+<details>
+<summary>Toggle section (optional)</summary>
+
 ![](img/roadmap_engineer.png)
 
 ### 1. Running LLMs
@@ -318,7 +312,6 @@ Running LLMs can be difficult due to high hardware requirements. Depending on yo
 * **Structuring outputs**: Many tasks require a structured output, like a strict template or a JSON format. Libraries like [Outlines](https://github.com/outlines-dev/outlines) can be used to guide the generation and respect a given structure. Some APIs also support structured output generation natively using JSON schemas.
 
 📚 **References**:
-* [Run an LLM locally with LM Studio](https://www.kdnuggets.com/run-an-llm-locally-with-lm-studio) by Nisha Arya: Short guide on how to use LM Studio.
 * [Prompt engineering guide](https://www.promptingguide.ai/) by DAIR.AI: Exhaustive list of prompt techniques with examples
 * [Outlines - Quickstart](https://dottxt-ai.github.io/outlines/latest/quickstart/): List of guided generation techniques enabled by Outlines. 
 * [LMQL - Overview](https://lmql.ai/docs/language/overview.html): Introduction to the LMQL language.
@@ -437,23 +430,3 @@ In addition to traditional security problems associated with software, LLMs have
 * [Prompt Injection Primer](https://github.com/jthack/PIPE) by Joseph Thacker: Short guide dedicated to prompt injection for engineers.
 * [LLM Security](https://llmsecurity.net/) by [@llm_sec](https://twitter.com/llm_sec): Extensive list of resources related to LLM security.
 * [Red teaming LLMs](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming) by Microsoft: Guide on how to perform red teaming with LLMs.
-
----
-## Acknowledgements
-
-This roadmap was inspired by the excellent [DevOps Roadmap](https://github.com/milanm/DevOps-Roadmap) from Milan Milanović and Romano Roth.
-
-Special thanks to:
-
-* Thomas Thelen for motivating me to create a roadmap
-* André Frade for his input and review of the first draft
-* Dino Dunn for providing resources about LLM security
-* Magdalena Kuhn for improving the "human evaluation" part
-* Odoverdose for suggesting 3Blue1Brown's video about Transformers
-* Everyone who contributed to the educational references in this course :)
-
-*Disclaimer: I am not affiliated with any sources listed here.*
-
----
-
-[![Star History Chart](https://api.star-history.com/svg?repos=mlabonne/llm-course&type=Date)](https://www.star-history.com/#mlabonne/llm-course&Date)
