@@ -307,7 +307,6 @@ Creating a vector storage is the first step to building a Retrieval Augmented Ge
 
 📚 **References**:
 * [Sentence Transformers library](https://www.sbert.net/): Popular library for embedding models.
-* [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard): Leaderboard for embedding models.
 * [The Top 7 Vector Databases](https://www.datacamp.com/blog/the-top-5-vector-databases) by Moez Ali: A comparison of the best and most popular vector databases.
 
 ---
@@ -321,7 +320,6 @@ With RAG, LLMs retrieve contextual documents from a database to improve the accu
 * **Evaluation**: We need to evaluate both the document retrieval (context precision and recall) and the generation stages (faithfulness and answer relevancy). It can be simplified with tools [Ragas](https://github.com/explodinggradients/ragas/tree/main) and [DeepEval](https://github.com/confident-ai/deepeval) (assessing quality).
 
 📚 **References**:
-* [Llamaindex - High-level concepts](https://docs.llamaindex.ai/en/stable/getting_started/concepts.html): Main concepts to know when building RAG pipelines.
 * [Pinecone - Retrieval Augmentation](https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/): Overview of the retrieval augmentation process. 
 * [RAG pipeline - Metrics](https://docs.ragas.io/en/stable/concepts/metrics/index.html): Overview of the main metrics used to evaluate RAG pipelines.
 
@@ -349,11 +347,8 @@ An LLM agent can autonomously perform tasks by taking actions based on reasoning
 
 * **Agent fundamentals**: Agents operate using thoughts (internal reasoning to decide what to do next), action (executing tasks, often by interacting with external tools), and observation (analyzing feedback or results to refine the next step).
 * **Agent protocols**: Model Context Protocol (MCP) is the industry standard for connecting agents to external tools and data sources with MCP servers and clients. More recently, [Agent2Agent](https://a2a-protocol.org/) (A2A) tries to standardize a common language for agent interoperability.
-* **Vendor frameworks**: Each major cloud model provider has its own agentic framework with [OpenAI SDK](https://openai.github.io/openai-agents-python/), [Google ADK](https://google.github.io/adk-docs/), and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
-* **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as [CrewAI](https://docs.crewai.com/introduction) (role-based team workflows) and [AutoGen](https://github.com/microsoft/autogen) (conversation-driven multi-agent systems).
-
-📚 **References**:
-* [LlamaIndex Agents](https://docs.llamaindex.ai/en/stable/use_cases/agents/): Uses cases and resources to build agents with LlamaIndex.
+* **Vendor frameworks**: Each major cloud model provider has its own agentic framework with [OpenAI SDK](https://openai.github.io/openai-agents-python/), Google ADK, and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
+* **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as CrewAI (role-based team workflows) and AutoGen (conversation-driven multi-agent systems).
 
 ---
 ### 6. Inference optimization
@@ -365,10 +360,7 @@ Text generation is a costly process that requires expensive hardware. In additio
 * **Speculative decoding**: Use a small model to produce drafts that are then reviewed by a larger model to speed up text generation. EAGLE-3 is a particularly popular solution.
 
 📚 **References**:
-* [GPU Inference](https://huggingface.co/docs/transformers/main/en/perf_infer_gpu_one) by Hugging Face: Explain how to optimize inference on GPUs.
 * [LLM Inference](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices) by Databricks: Best practices for how to optimize LLM inference in production.
-* [Optimizing LLMs for Speed and Memory](https://huggingface.co/docs/transformers/main/en/llm_tutorial_optimization) by Hugging Face: Explain three main techniques to optimize speed and memory, namely quantization, Flash Attention, and architectural innovations.
-* [Assisted Generation](https://huggingface.co/blog/assisted-generation) by Hugging Face: HF's version of speculative decoding. It's an interesting blog post about how it works with code to implement it.
 * [EAGLE-3 paper](https://arxiv.org/abs/2503.01840?utm_source=chatgpt.com): Introduces EAGLE-3 and reports speedups up to 6.5×.
 * [Speculators](https://github.com/vllm-project/speculators): Library made by vLLM for building, evaluating, and storing speculative decoding algorithms (e.g., EAGLE-3) for LLM inference.
 
@@ -377,14 +369,12 @@ Text generation is a costly process that requires expensive hardware. In additio
 
 Deploying LLMs at scale is an engineering feat that can require multiple clusters of GPUs. In other scenarios, demos and local apps can be achieved with much lower complexity. 
 
-* **Local deployment**: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers (LM Studio, Ollama, [oobabooga](https://github.com/oobabooga/text-generation-webui), [kobold.cpp](https://github.com/LostRuins/koboldcpp), etc.) capitalize on this advantage to power local apps. 
-* **Demo deployment**: Frameworks like [Gradio](https://www.gradio.app/) and [Streamlit](https://docs.streamlit.io/) are helpful to prototype applications and share demos. You can also easily host them online, for example, using Hugging Face Spaces.
+* **Local deployment**: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers (llama.cpp, ollama, LM Studio, oobabooga, kobold.cpp, etc.) capitalize on this advantage to power local apps. 
+* **Demo deployment**: Frameworks like Gradio and Streamlit are helpful to prototype applications and share demos. You can also easily host them online, for example, using Hugging Face Spaces.
 * **Server deployment**: Deploying LLMs at scale requires cloud (see also [SkyPilot](https://skypilot.readthedocs.io/en/latest/)) or on-prem infrastructure and often leverages optimized text generation frameworks like [TGI](https://github.com/huggingface/text-generation-inference), vLLM, etc.
-* **Edge deployment**: In constrained environments, high-performance frameworks like [MLC LLM](https://github.com/mlc-ai/mlc-llm) and [mnn-llm](https://github.com/wangzhaode/mnn-llm/blob/master/README_en.md) can deploy LLM in web browsers, Android, and iOS.
+* **Edge deployment**: In constrained environments, high-performance frameworks like MLC LLM and mnn-llm can deploy LLM in web browsers, Android, and iOS.
 
 📚 **References**:
-* [Streamlit - Build a basic LLM app](https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps): Tutorial to make a basic ChatGPT-like app using Streamlit.
-* [HF LLM Inference Container](https://huggingface.co/blog/sagemaker-huggingface-llm): Deploy LLMs on Amazon SageMaker using Hugging Face's inference container.
 * [Philschmid blog](https://www.philschmid.de/) by Philipp Schmid: Collection of high-quality articles about LLM deployment using Amazon SageMaker.
 * [Optimizing latence](https://hamel.dev/notes/llm/inference/03_inference.html) by Hamel Husain: Comparison of TGI, vLLM, CTranslate2, and mlc in terms of throughput and latency.
 
@@ -400,6 +390,6 @@ In addition to traditional security problems associated with software, LLMs have
 📚 **References**:
 * [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) by HEGO Wiki: List of the 10 most critical vulnerabilities seen in LLM applications.
 * [Prompt Injection Primer](https://github.com/jthack/PIPE) by Joseph Thacker: Short guide dedicated to prompt injection for engineers.
-* [LLM Security](https://llmsecurity.net/) by [@llm_sec](https://twitter.com/llm_sec): Extensive list of resources related to LLM security.
+* [LLM Security](https://llmsecurity.net/) by @llm_sec: Extensive list of resources related to LLM security.
 * [Red teaming LLMs](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming) by Microsoft: Guide on how to perform red teaming with LLMs.
 </details>
