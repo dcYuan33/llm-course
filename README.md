@@ -294,7 +294,6 @@ Creating a vector storage is the first step to building a Retrieval Augmented Ge
 
 📚 **References**:
 * [Sentence Transformers library](https://www.sbert.net/): Popular library for embedding models.
-* [The Top 7 Vector Databases](https://www.datacamp.com/blog/the-top-5-vector-databases) by Moez Ali: A comparison of the best and most popular vector databases.
 
 ---
 ### 3. Retrieval Augmented Generation
