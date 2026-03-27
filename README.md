@@ -141,9 +141,7 @@ An in-depth knowledge of the Transformer architecture is not required, but it's 
 - **Sampling techniques**: Explore various text generation approaches and their tradeoffs. Compare deterministic methods like greedy search and beam search with probabilistic approaches like temperature sampling and nucleus sampling.
 
 📚 **References**:
-* [Visual intro to Transformers](https://www.youtube.com/watch?v=wjZofJX0v4M) by 3Blue1Brown: Visual introduction to Transformers for complete beginners.
 * [LLM Visualization](https://bbycroft.net/llm) by Brendan Bycroft: Interactive 3D visualization of LLM internals.
-* [nanoGPT](https://www.youtube.com/watch?v=kCc8FmEb1nY) by Andrej Karpathy: A 2h-long YouTube video to reimplement GPT from scratch (for programmers). He also made a video about [tokenization](https://www.youtube.com/watch?v=zduSFxRajkE).
 * [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/) by Lilian Weng: Historical overview to introduce the need for attention mechanisms.
 * [Decoding Strategies in LLMs](https://mlabonne.github.io/blog/posts/2023-06-07-Decoding_strategies.html) by Maxime Labonne: Provide code and a visual introduction to the different decoding strategies to generate text.
 
@@ -181,8 +179,7 @@ Post-training datasets have a precise structure with instructions and answers (s
 * [LLM Datasets](https://github.com/mlabonne/llm-datasets) by Maxime Labonne: Curated list of datasets and tools for post-training.
 * [NeMo-Curator](https://github.com/NVIDIA/NeMo-Curator) by Nvidia: Dataset preparation and curation framework for pre- and post-training data.
 * [Distilabel](https://distilabel.argilla.io/dev/sections/pipeline_samples/) by Argilla: Framework to generate synthetic data. It also includes interesting reproductions of papers like UltraFeedback.
-* [Semhash](https://github.com/MinishLab/semhash) by MinishLab: Minimalistic library for near-deduplication and decontamination with a distilled embedding model.
-* [Chat Template](https://huggingface.co/docs/transformers/main/en/chat_templating) by Hugging Face: Hugging Face's documentation about chat templates.
+* [Semhash](https://github.com/MinishLab/semhash) by MinishLab: Minimalistic library for near-deduplication and decontamination with a distilled embedd
 
 ---
 ### 4. Supervised Fine-Tuning
@@ -195,7 +192,6 @@ SFT turns base models into helpful assistants, capable of answering questions an
 - **Monitoring**: Track training metrics including loss curves, learning rate schedules, and gradient norms. Monitor for common issues like loss spikes, gradient explosions, or performance degradation.
 
 📚 **References**:
-* [Fine-tune Llama 3.1 Ultra-Efficiently with Unsloth](https://huggingface.co/blog/mlabonne/sft-llama3) by Maxime Labonne: Hands-on tutorial on how to fine-tune a Llama 3.1 model using Unsloth.
 * [Axolotl - Documentation](https://axolotl-ai-cloud.github.io/axolotl/) by Wing Lian: Lots of interesting information related to distributed training and dataset formats.
 * [Mastering LLMs](https://parlance-labs.com/education/) by Hamel Husain: Collection of educational resources about fine-tuning (but also RAG, evaluation, applications, and prompt engineering).
 * [LoRA insights](https://lightning.ai/pages/community/lora-insights/) by Sebastian Raschka: Practical insights about LoRA and how to select the best parameters.
@@ -211,11 +207,8 @@ Preference alignment is a second stage in the post-training pipeline, focused on
 - **Reinforcement Learning**: RL techniques like [GRPO](https://arxiv.org/abs/2402.03300) and [PPO](https://arxiv.org/abs/1707.06347) iteratively update a policy to maximize rewards while staying close to the initial behavior. They can use a reward model or reward functions to score responses. They tend to be computationally expensive and require careful tuning of hyperparameters, including learning rate, batch size, and clip range. Ideal for creating reasoning models.
 
 📚 **References**:
-* [Illustrating RLHF](https://huggingface.co/blog/rlhf) by Hugging Face: Introduction to RLHF with reward model training and fine-tuning with reinforcement learning.
 * [LLM Training: RLHF and Its Alternatives](https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives) by Sebastian Raschka: Overview of the RLHF process and alternatives like RLAIF.
-* [Preference Tuning LLMs](https://huggingface.co/blog/pref-tuning) by Hugging Face: Comparison of the DPO, IPO, and KTO algorithms to perform preference alignment.
 * [Fine-tune with DPO](https://mlabonne.github.io/blog/posts/Fine_tune_Mistral_7b_with_DPO.html) by Maxime Labonne: Tutorial to fine-tune a Mistral-7b model with DPO and reproduce [NeuralHermes-2.5](https://huggingface.co/mlabonne/NeuralHermes-2.5-Mistral-7B).
-* [Fine-tune with GRPO](https://huggingface.co/learn/llm-course/en/chapter12/5) by Maxime Labonne: Practical exercise to fine-tune a small model with GRPO.
 * [DPO Wandb logs](https://wandb.ai/alexander-vishnevskiy/dpo/reports/TRL-Original-DPO--Vmlldzo1NjI4MTc4) by Alexander Vishnevskiy: It shows you the main DPO metrics to track and the trends you should expect.
 
 ---
@@ -229,8 +222,6 @@ Reliably evaluating LLMs is a complex but essential task guiding data generation
 - **Feedback signal**: Analyze error patterns to identify specific weaknesses, such as limitations in following complex instructions, lack of specific knowledge, or susceptibility to adversarial prompts. This can be improved with better data generation and training parameters.
 
 📚 **References**:
-* [LLM evaluation guidebook](https://huggingface.co/spaces/OpenEvals/evaluation-guidebook) by Hugging Face: Comprehensive guide about evaluation with practical insights.
-* [Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) by Hugging Face: Main leaderboard to compare LLMs in an open and reproducible way (automated benchmarks).
 * [Language Model Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) by EleutherAI: A popular framework for evaluating LLMs using automated benchmarks.
 * [Lighteval](https://github.com/huggingface/lighteval) by Hugging Face: Alternative evaluation framework that also includes model-based evaluations.
 * [Chatbot Arena](https://lmarena.ai/) by LMSYS: Elo rating of general-purpose LLMs, based on comparisons made by humans (human evaluation).
@@ -267,9 +258,7 @@ Here are notable topics that didn't fit into other categories. Some are establis
 * [Merge LLMs with mergekit](https://mlabonne.github.io/blog/posts/2024-01-08_Merge_LLMs_with_mergekit.html) by Maxime Labonne: Tutorial about model merging using mergekit.
 * [Smol Vision](https://github.com/merveenoyan/smol-vision) by Merve Noyan: Collection of notebooks and scripts dedicated to small multimodal models.
 * [Large Multimodal Models](https://huyenchip.com/2023/10/10/multimodal.html) by Chip Huyen: Overview of multimodal systems and the recent history of this field.
-* [Unsensor any LLM with abliteration](https://huggingface.co/blog/mlabonne/abliteration) by Maxime Labonne: Direct application of interpretability techniques to modify the style of a model.
 * [Intuitive Explanation of SAEs](https://adamkarvonen.github.io/machine_learning/2024/06/11/sae-intuitions.html) by Adam Karvonen: Article about how SAEs work and why they make sense for interpretability.
-* [Scaling test-time compute](https://huggingface.co/spaces/HuggingFaceH4/blogpost-scaling-test-time-compute) by Beeching et al.: Tutorial and experiments to outperform Llama 3.1 70B on MATH-500 with a 3B model.
 </details>
 
 ## 👷 The LLM Engineer
