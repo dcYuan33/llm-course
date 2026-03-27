@@ -5,7 +5,7 @@
 </div>
 <br/>
 
-1. 🧩 **LLM Fundamentals** is optional and covers fundamental knowledge about mathematics, Python, and neural networks.
+1. 🧩 **LLM Fundamentals** covers fundamental knowledge about mathematics, Python, and neural networks.
 2. 🧑‍🔬 **The LLM Scientist** focuses on building the best possible LLMs using the latest techniques.
 3. 👷 **The LLM Engineer** focuses on creating LLM-based applications and deploying them.
 
