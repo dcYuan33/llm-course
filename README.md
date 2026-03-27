@@ -77,8 +77,6 @@ Before mastering machine learning, it is important to understand the fundamental
 - **Calculus**: Many machine learning algorithms involve the optimization of continuous functions, which requires an understanding of derivatives, integrals, limits, and series. Multivariable calculus and the concept of gradients are also important.
 - **Probability and Statistics**: These are crucial for understanding how models learn from data and make predictions. Key concepts include probability theory, random variables, probability distributions, expectations, variance, covariance, correlation, hypothesis testing, confidence intervals, maximum likelihood estimation, and Bayesian inference.
 
-📚 Resources:
-
 ---
 
 ### 2. Python for Machine Learning
@@ -89,10 +87,6 @@ Python is a powerful and flexible programming language that's particularly good 
 - **Data Science Libraries**: It includes familiarity with NumPy for numerical operations, Pandas for data manipulation and analysis, Matplotlib and Seaborn for data visualization.
 - **Data Preprocessing**: This involves feature scaling and normalization, handling missing data, outlier detection, categorical data encoding, and splitting data into training, validation, and test sets.
 - **Machine Learning Libraries**: Proficiency with Scikit-learn, a library providing a wide selection of supervised and unsupervised learning algorithms, is vital. Understanding how to implement algorithms like linear regression, logistic regression, decision trees, random forests, k-nearest neighbors (K-NN), and K-means clustering is important. Dimensionality reduction techniques like PCA and t-SNE are also helpful for visualizing high-dimensional data.
-
-📚 Resources:
-
-- [freeCodeCamp - Machine Learning for Everybody](https://youtu.be/i_LwzRVP7bg): Practical introduction to different machine learning algorithms for beginners.
 
 ---
 
@@ -312,7 +306,6 @@ Creating a vector storage is the first step to building a Retrieval Augmented Ge
 * **Vector databases**: Vector databases (like [Chroma](https://www.trychroma.com/), [Pinecone](https://www.pinecone.io/), [Milvus](https://milvus.io/), [FAISS](https://faiss.ai/), [Annoy](https://github.com/spotify/annoy), etc.) are designed to store embedding vectors. They enable efficient retrieval of data that is 'most similar' to a query based on vector similarity.
 
 📚 **References**:
-* [LangChain - Text splitters](https://python.langchain.com/docs/how_to/#text-splitters): List of different text splitters implemented in LangChain.
 * [Sentence Transformers library](https://www.sbert.net/): Popular library for embedding models.
 * [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard): Leaderboard for embedding models.
 * [The Top 7 Vector Databases](https://www.datacamp.com/blog/the-top-5-vector-databases) by Moez Ali: A comparison of the best and most popular vector databases.
@@ -330,8 +323,6 @@ With RAG, LLMs retrieve contextual documents from a database to improve the accu
 📚 **References**:
 * [Llamaindex - High-level concepts](https://docs.llamaindex.ai/en/stable/getting_started/concepts.html): Main concepts to know when building RAG pipelines.
 * [Pinecone - Retrieval Augmentation](https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/): Overview of the retrieval augmentation process. 
-* [LangChain - Q&A with RAG](https://python.langchain.com/docs/tutorials/rag/): Step-by-step tutorial to build a typical RAG pipeline.
-* [LangChain - Memory types](https://python.langchain.com/docs/how_to/chatbots_memory/): List of different types of memories with relevant usage.
 * [RAG pipeline - Metrics](https://docs.ragas.io/en/stable/concepts/metrics/index.html): Overview of the main metrics used to evaluate RAG pipelines.
 
 ---
@@ -346,7 +337,6 @@ Real-life applications can require complex pipelines, including SQL or graph dat
 
 📚 **References**:
 * [LangChain - Query Construction](https://blog.langchain.dev/query-construction/): Blog post about different types of query construction.
-* [LangChain - SQL](https://python.langchain.com/docs/tutorials/sql_qa/): Tutorial on how to interact with SQL databases with LLMs, involving Text-to-SQL and an optional SQL agent.
 * [Pinecone - LLM agents](https://www.pinecone.io/learn/series/langchain/langchain-agents/): Introduction to agents and tools with different types.
 * [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) by Lilian Weng: A more theoretical article about LLM agents.
 * [LangChain - OpenAI's RAG](https://blog.langchain.dev/applying-openai-rag/): Overview of the RAG strategies employed by OpenAI, including post-processing.
@@ -363,8 +353,6 @@ An LLM agent can autonomously perform tasks by taking actions based on reasoning
 * **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as [CrewAI](https://docs.crewai.com/introduction) (role-based team workflows) and [AutoGen](https://github.com/microsoft/autogen) (conversation-driven multi-agent systems).
 
 📚 **References**:
-* [Agents Course](https://huggingface.co/learn/agents-course/unit0/introduction): Popular course about AI agents made by Hugging Face.
-* [LangGraph](https://langchain-ai.github.io/langgraph/concepts/why-langgraph/): Overview of how to build AI agents with LangGraph.
 * [LlamaIndex Agents](https://docs.llamaindex.ai/en/stable/use_cases/agents/): Uses cases and resources to build agents with LlamaIndex.
 
 ---
