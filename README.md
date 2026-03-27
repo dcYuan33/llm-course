@@ -66,8 +66,6 @@ This section introduces essential knowledge about mathematics, Python, and neura
 
 <details>
 <summary>Toggle section (optional)</summary>
-  
-![](img/roadmap_fundamentals.png)
 
 ### 1. Mathematics for Machine Learning
 
@@ -126,8 +124,6 @@ This section of the course focuses on learning how to build the best possible LL
 
 <details>
 <summary>Toggle section (optional)</summary>
-
-![](img/roadmap_scientist.png)
 
 ### 1. The LLM Architecture
 
@@ -265,8 +261,6 @@ This section of the course focuses on learning how to build LLM-powered applicat
 
 <details>
 <summary>Toggle section (optional)</summary>
-
-![](img/roadmap_engineer.png)
 
 ### 1. Running LLMs
 
