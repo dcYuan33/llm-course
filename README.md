@@ -287,14 +287,10 @@ This section of the course focuses on learning how to build LLM-powered applicat
 
 Running LLMs can be difficult due to high hardware requirements. Depending on your use case, you might want to simply consume a model through an API (like GPT-4) or run it locally. In any case, additional prompting and guidance techniques can improve and constrain the output for your applications.
 
-* **LLM APIs**: APIs are a convenient way to deploy LLMs. This space is divided between private LLMs (OpenAI, Google, Anthropic, etc.) and open-source LLMs (OpenRouter, Hugging Face, Together AI, etc.).
+* **LLM APIs**: APIs are a convenient way to deploy LLMs. This space is divided between private LLMs and open-source LLMs.
 * **Open-source LLMs**: The Hugging Face Hub is a great place to find LLMs. You can directly run some of them in Hugging Face Spaces, or download and run them locally in apps like LM Studio or through the CLI with llama.cpp or ollama.
 * **Prompt engineering**: Common techniques include zero-shot prompting, few-shot prompting, chain of thought, and ReAct. They work better with bigger models, but can be adapted to smaller ones.
 * **Structuring outputs**: Many tasks require a structured output, like a strict template or a JSON format. Libraries like Outlines can be used to guide the generation and respect a given structure. Some APIs also support structured output generation natively using JSON schemas.
-
-📚 **References**:
-* [Prompt engineering guide](https://www.promptingguide.ai/) by DAIR.AI: Exhaustive list of prompt techniques with examples
-* [Outlines - Quickstart](https://dottxt-ai.github.io/outlines/latest/quickstart/): List of guided generation techniques enabled by Outlines. 
 
 ---
 ### 2. Deploying LLMs
