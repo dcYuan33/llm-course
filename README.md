@@ -5,10 +5,6 @@
 </div>
 <br/>
 
-1. 🧩 **LLM Fundamentals** covers fundamental knowledge about mathematics, Python, and neural networks.
-2. 🧑‍🔬 **The LLM Scientist** focuses on building the best possible LLMs using the latest techniques.
-3. 👷 **The LLM Engineer** focuses on creating LLM-based applications and deploying them.
-
 ## 📝 Notebooks
 
 A list of notebooks and articles I wrote about LLMs.
@@ -62,8 +58,6 @@ A list of notebooks and articles I wrote about LLMs.
 
 ## 🧩 LLM Fundamentals
 
-This section introduces essential knowledge about mathematics, Python, and neural networks. You might not want to start here but refer to it as needed.
-
 <details>
 <summary>Toggle section (optional)</summary>
 
@@ -77,13 +71,13 @@ Before mastering machine learning, it is important to understand the fundamental
 
 ---
 
-### 2. Python for Machine Learning
+### 2. Python & DS & ML
 
 Python is a powerful and flexible programming language that's particularly good for machine learning, thanks to its readability, consistency, and robust ecosystem of data science libraries.
 
 - **Python Basics**: Python programming requires a good understanding of the basic syntax, data types, error handling, and object-oriented programming.
-- **Data Science Libraries**: It includes familiarity with NumPy for numerical operations, Pandas for data manipulation and analysis, Matplotlib and Seaborn for data visualization.
 - **Data Preprocessing**: This involves feature scaling and normalization, handling missing data, outlier detection, categorical data encoding, and splitting data into training, validation, and test sets.
+- **Data Science Libraries**: It includes familiarity with NumPy for numerical operations, Pandas for data manipulation and analysis, Matplotlib and Seaborn for data visualization.
 - **Machine Learning Libraries**: Proficiency with Scikit-learn, a library providing a wide selection of supervised and unsupervised learning algorithms, is vital. Understanding how to implement algorithms like linear regression, logistic regression, decision trees, random forests, k-nearest neighbors (K-NN), and K-means clustering is important. Dimensionality reduction techniques like PCA and t-SNE are also helpful for visualizing high-dimensional data.
 
 ---
@@ -206,7 +200,21 @@ Preference alignment is a second stage in the post-training pipeline, focused on
 * [DPO Wandb logs](https://wandb.ai/alexander-vishnevskiy/dpo/reports/TRL-Original-DPO--Vmlldzo1NjI4MTc4) by Alexander Vishnevskiy: It shows you the main DPO metrics to track and the trends you should expect.
 
 ---
-### 6. Evaluation
+### 6. Inference optimization
+
+Text generation is a costly process that requires expensive hardware. In addition to quantization, various techniques have been proposed to maximize throughput and reduce inference costs.
+
+* **Flash Attention**: Optimization of the attention mechanism to transform its complexity from quadratic to linear, speeding up both training and inference.
+* **Key-value cache**: Understand the key-value cache and the improvements introduced in [Multi-Query Attention](https://arxiv.org/abs/1911.02150) (MQA) and [Grouped-Query Attention](https://arxiv.org/abs/2305.13245) (GQA).
+* **Speculative decoding**: Use a small model to produce drafts that are then reviewed by a larger model to speed up text generation. EAGLE-3 is a particularly popular solution.
+
+📚 **References**:
+* [LLM Inference](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices) by Databricks: Best practices for how to optimize LLM inference in production.
+* [EAGLE-3 paper](https://arxiv.org/abs/2503.01840?utm_source=chatgpt.com): Introduces EAGLE-3 and reports speedups up to 6.5×.
+* [Speculators](https://github.com/vllm-project/speculators): Library made by vLLM for building, evaluating, and storing speculative decoding algorithms (e.g., EAGLE-3) for LLM inference.
+
+---
+### 7. Evaluation
 
 Reliably evaluating LLMs is a complex but essential task guiding data generation and training. It provides invaluable feedback about areas of improvement, which can be leveraged to modify the data mixture, quality, and training parameters. However, it's always good to remember Goodhart's law: "When a measure becomes a target, it ceases to be a good measure."
 
@@ -221,7 +229,7 @@ Reliably evaluating LLMs is a complex but essential task guiding data generation
 * [Chatbot Arena](https://lmarena.ai/) by LMSYS: Elo rating of general-purpose LLMs, based on comparisons made by humans (human evaluation).
 
 ---
-### 7. Quantization
+### 8. Quantization
 
 Quantization is the process of converting the parameters and activations of a model to a lower precision. For example, weights stored using 16 bits can be converted into a 4-bit representation. This technique has become increasingly important to reduce the computational and memory costs associated with LLMs.
 
@@ -239,7 +247,20 @@ Quantization is the process of converting the parameters and activations of a mo
 * [DeepSpeed Model Compression](https://www.deepspeed.ai/tutorials/model-compression/) by DeepSpeed: Tutorial on how to use ZeroQuant and extreme compression (XTC) with DeepSpeed Compression.
 
 ---
-### 8. New Trends
+### 9. Knowledge Distillation
+
+Knowledge Distillation is a machine learning technique where a small, efficient "student" model is trained to mimic the behavior and performance of a large, complex "teacher" model by learning from its output probabilities or internal representations.
+
+* **The Foundations**: The principle of distiilation is the Teacher-Student architecture. The Loss Function includes learning KL Divergence and balancing hard labels(true labels) and soft labels(Teacher Model's probability distribution).The categories of distillation is divided into White-box Distillation and Black-box Distillation.
+* **Distillation Strategies**: Logit-based Distillation, Feature-based Distillation, and Step-by-Step Distillation.
+* **Practical Tools**: DeepSpeed-Compression, Hugging Face TextBrewer, Logit Extraction.
+
+📚 **References**:
+* [Distillation Paper](https://arxiv.org/abs/1503.02531)
+* [DeepSpeed-Compression](https://www.deepspeed.ai/tutorials/model-compression/)
+
+---
+### 10. New Trends
 
 Here are notable topics that didn't fit into other categories. Some are established techniques (model merging, multimodal), but others are more experimental (interpretability, test-time compute scaling) and the focus of numerous research papers. 
 
@@ -274,10 +295,48 @@ Running LLMs can be difficult due to high hardware requirements. Depending on yo
 📚 **References**:
 * [Prompt engineering guide](https://www.promptingguide.ai/) by DAIR.AI: Exhaustive list of prompt techniques with examples
 * [Outlines - Quickstart](https://dottxt-ai.github.io/outlines/latest/quickstart/): List of guided generation techniques enabled by Outlines. 
-* [LMQL - Overview](https://lmql.ai/docs/language/overview.html): Introduction to the LMQL language.
 
 ---
-### 2. Building a Vector Storage
+### 2. Deploying LLMs
+
+Deploying LLMs at scale is an engineering feat that can require multiple clusters of GPUs. In other scenarios, demos and local apps can be achieved with much lower complexity. 
+
+* **Local deployment**: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers (llama.cpp, ollama, LM Studio, oobabooga, kobold.cpp, etc.) capitalize on this advantage to power local apps. 
+* **Demo deployment**: Frameworks like Gradio and Streamlit are helpful to prototype applications and share demos. You can also easily host them online, for example, using Hugging Face Spaces.
+* **Server deployment**: Deploying LLMs at scale requires cloud (see also [SkyPilot](https://skypilot.readthedocs.io/en/latest/)) or on-prem infrastructure and often leverages optimized text generation frameworks like [TGI](https://github.com/huggingface/text-generation-inference), vLLM, etc.
+* **Edge deployment**: In constrained environments, high-performance frameworks like MLC LLM and mnn-llm can deploy LLM in web browsers, Android, and iOS.
+
+📚 **References**:
+* [Philschmid blog](https://www.philschmid.de/) by Philipp Schmid: Collection of high-quality articles about LLM deployment using Amazon SageMaker.
+* [Optimizing latence](https://hamel.dev/notes/llm/inference/03_inference.html) by Hamel Husain: Comparison of TGI, vLLM, CTranslate2, and mlc in terms of throughput and latency.
+
+---
+### 3. Securing LLMs
+
+In addition to traditional security problems associated with software, LLMs have unique weaknesses due to the way they are trained and prompted.
+
+* **Prompt hacking**: Different techniques related to prompt engineering, including prompt injection (additional instruction to hijack the model's answer), data/prompt leaking (retrieve its original data/prompt), and jailbreaking (craft prompts to bypass safety features).
+* **Backdoors**: Attack vectors can target the training data itself, by poisoning the training data (e.g., with false information) or creating backdoors (secret triggers to change the model's behavior during inference).
+* **Defensive measures**: The best way to protect your LLM applications is to test them against these vulnerabilities (e.g., using red teaming and checks like [garak](https://github.com/leondz/garak/)) and observe them in production (with a framework like [langfuse](https://github.com/langfuse/langfuse)).
+
+📚 **References**:
+* [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) by HEGO Wiki: List of the 10 most critical vulnerabilities seen in LLM applications.
+* [Prompt Injection Primer](https://github.com/jthack/PIPE) by Joseph Thacker: Short guide dedicated to prompt injection for engineers.
+* [LLM Security](https://llmsecurity.net/) by @llm_sec: Extensive list of resources related to LLM security.
+* [Red teaming LLMs](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming) by Microsoft: Guide on how to perform red teaming with LLMs.
+
+---
+### 4. Agents
+
+An LLM agent can autonomously perform tasks by taking actions based on reasoning about its environment, typically through the use of tools or functions to interact with external systems.
+
+* **Agent fundamentals**: Agents operate using thoughts (internal reasoning to decide what to do next), action (executing tasks, often by interacting with external tools), and observation (analyzing feedback or results to refine the next step).
+* **Agent protocols**: Model Context Protocol (MCP) is the industry standard for connecting agents to external tools and data sources with MCP servers and clients. More recently, [Agent2Agent](https://a2a-protocol.org/) (A2A) tries to standardize a common language for agent interoperability.
+* **Vendor frameworks**: Each major cloud model provider has its own agentic framework with [OpenAI SDK](https://openai.github.io/openai-agents-python/), Google ADK, and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
+* **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as CrewAI (role-based team workflows) and AutoGen (conversation-driven multi-agent systems).
+
+---
+### 5. RAG
 
 Creating a vector storage is the first step to building a Retrieval Augmented Generation (RAG) pipeline. Documents are loaded, split, and relevant chunks are used to produce vector representations (embeddings) that are stored for future use during inference.
 
@@ -289,9 +348,6 @@ Creating a vector storage is the first step to building a Retrieval Augmented Ge
 📚 **References**:
 * [Sentence Transformers library](https://www.sbert.net/): Popular library for embedding models.
 
----
-### 3. Retrieval Augmented Generation
-
 With RAG, LLMs retrieve contextual documents from a database to improve the accuracy of their answers. RAG is a popular way of augmenting the model's knowledge without any fine-tuning.
 
 * **Orchestrators**: Orchestrators like LangChain and LlamaIndex are popular frameworks to connect your LLMs with tools and databases. The Model Context Protocol (MCP) introduces a new standard to pass data and context to models across providers.
@@ -302,9 +358,6 @@ With RAG, LLMs retrieve contextual documents from a database to improve the accu
 📚 **References**:
 * [Pinecone - Retrieval Augmentation](https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/): Overview of the retrieval augmentation process. 
 * [RAG pipeline - Metrics](https://docs.ragas.io/en/stable/concepts/metrics/index.html): Overview of the main metrics used to evaluate RAG pipelines.
-
----
-### 4. Advanced RAG
 
 Real-life applications can require complex pipelines, including SQL or graph databases, as well as automatically selecting relevant tools and APIs. These advanced techniques can improve a baseline solution and provide additional features.
 
@@ -319,57 +372,4 @@ Real-life applications can require complex pipelines, including SQL or graph dat
 * [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) by Lilian Weng: A more theoretical article about LLM agents.
 * [LangChain - OpenAI's RAG](https://blog.langchain.dev/applying-openai-rag/): Overview of the RAG strategies employed by OpenAI, including post-processing.
 * [DSPy in 8 Steps](https://dspy-docs.vercel.app/docs/building-blocks/solving_your_task): General-purpose guide to DSPy introducing modules, signatures, and optimizers.
-
----
-### 5. Agents
-
-An LLM agent can autonomously perform tasks by taking actions based on reasoning about its environment, typically through the use of tools or functions to interact with external systems.
-
-* **Agent fundamentals**: Agents operate using thoughts (internal reasoning to decide what to do next), action (executing tasks, often by interacting with external tools), and observation (analyzing feedback or results to refine the next step).
-* **Agent protocols**: Model Context Protocol (MCP) is the industry standard for connecting agents to external tools and data sources with MCP servers and clients. More recently, [Agent2Agent](https://a2a-protocol.org/) (A2A) tries to standardize a common language for agent interoperability.
-* **Vendor frameworks**: Each major cloud model provider has its own agentic framework with [OpenAI SDK](https://openai.github.io/openai-agents-python/), Google ADK, and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
-* **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as CrewAI (role-based team workflows) and AutoGen (conversation-driven multi-agent systems).
-
----
-### 6. Inference optimization
-
-Text generation is a costly process that requires expensive hardware. In addition to quantization, various techniques have been proposed to maximize throughput and reduce inference costs.
-
-* **Flash Attention**: Optimization of the attention mechanism to transform its complexity from quadratic to linear, speeding up both training and inference.
-* **Key-value cache**: Understand the key-value cache and the improvements introduced in [Multi-Query Attention](https://arxiv.org/abs/1911.02150) (MQA) and [Grouped-Query Attention](https://arxiv.org/abs/2305.13245) (GQA).
-* **Speculative decoding**: Use a small model to produce drafts that are then reviewed by a larger model to speed up text generation. EAGLE-3 is a particularly popular solution.
-
-📚 **References**:
-* [LLM Inference](https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices) by Databricks: Best practices for how to optimize LLM inference in production.
-* [EAGLE-3 paper](https://arxiv.org/abs/2503.01840?utm_source=chatgpt.com): Introduces EAGLE-3 and reports speedups up to 6.5×.
-* [Speculators](https://github.com/vllm-project/speculators): Library made by vLLM for building, evaluating, and storing speculative decoding algorithms (e.g., EAGLE-3) for LLM inference.
-
----
-### 7. Deploying LLMs
-
-Deploying LLMs at scale is an engineering feat that can require multiple clusters of GPUs. In other scenarios, demos and local apps can be achieved with much lower complexity. 
-
-* **Local deployment**: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers (llama.cpp, ollama, LM Studio, oobabooga, kobold.cpp, etc.) capitalize on this advantage to power local apps. 
-* **Demo deployment**: Frameworks like Gradio and Streamlit are helpful to prototype applications and share demos. You can also easily host them online, for example, using Hugging Face Spaces.
-* **Server deployment**: Deploying LLMs at scale requires cloud (see also [SkyPilot](https://skypilot.readthedocs.io/en/latest/)) or on-prem infrastructure and often leverages optimized text generation frameworks like [TGI](https://github.com/huggingface/text-generation-inference), vLLM, etc.
-* **Edge deployment**: In constrained environments, high-performance frameworks like MLC LLM and mnn-llm can deploy LLM in web browsers, Android, and iOS.
-
-📚 **References**:
-* [Philschmid blog](https://www.philschmid.de/) by Philipp Schmid: Collection of high-quality articles about LLM deployment using Amazon SageMaker.
-* [Optimizing latence](https://hamel.dev/notes/llm/inference/03_inference.html) by Hamel Husain: Comparison of TGI, vLLM, CTranslate2, and mlc in terms of throughput and latency.
-
----
-### 8. Securing LLMs
-
-In addition to traditional security problems associated with software, LLMs have unique weaknesses due to the way they are trained and prompted.
-
-* **Prompt hacking**: Different techniques related to prompt engineering, including prompt injection (additional instruction to hijack the model's answer), data/prompt leaking (retrieve its original data/prompt), and jailbreaking (craft prompts to bypass safety features).
-* **Backdoors**: Attack vectors can target the training data itself, by poisoning the training data (e.g., with false information) or creating backdoors (secret triggers to change the model's behavior during inference).
-* **Defensive measures**: The best way to protect your LLM applications is to test them against these vulnerabilities (e.g., using red teaming and checks like [garak](https://github.com/leondz/garak/)) and observe them in production (with a framework like [langfuse](https://github.com/langfuse/langfuse)).
-
-📚 **References**:
-* [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) by HEGO Wiki: List of the 10 most critical vulnerabilities seen in LLM applications.
-* [Prompt Injection Primer](https://github.com/jthack/PIPE) by Joseph Thacker: Short guide dedicated to prompt injection for engineers.
-* [LLM Security](https://llmsecurity.net/) by @llm_sec: Extensive list of resources related to LLM security.
-* [Red teaming LLMs](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming) by Microsoft: Guide on how to perform red teaming with LLMs.
 </details>
