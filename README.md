@@ -332,7 +332,7 @@ An LLM agent can autonomously perform tasks by taking actions based on reasoning
 
 * **Agent fundamentals**: Agents operate using thoughts (internal reasoning to decide what to do next), action (executing tasks, often by interacting with external tools), and observation (analyzing feedback or results to refine the next step).
 * **Agent protocols**: Model Context Protocol (MCP) is the industry standard for connecting agents to external tools and data sources with MCP servers and clients. More recently, [Agent2Agent](https://a2a-protocol.org/) (A2A) tries to standardize a common language for agent interoperability.
-* **Vendor frameworks**: Each major cloud model provider has its own agentic framework with [OpenAI SDK](https://openai.github.io/openai-agents-python/), Google ADK, and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
+* **Vendor frameworks**: Each major cloud model provider has its own agentic framework with OpenAI SDK, Google ADK, and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
 * **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as CrewAI (role-based team workflows) and AutoGen (conversation-driven multi-agent systems).
 
 ---
