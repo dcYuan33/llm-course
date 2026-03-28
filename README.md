@@ -283,20 +283,11 @@ This section of the course focuses on learning how to build LLM-powered applicat
 <details>
 <summary>Toggle section (optional)</summary>
 
-### 1. Running LLMs
-
-Running LLMs can be difficult due to high hardware requirements. Depending on your use case, you might want to simply consume a model through an API (like GPT-4) or run it locally. In any case, additional prompting and guidance techniques can improve and constrain the output for your applications.
-
-* **LLM APIs**: APIs are a convenient way to deploy LLMs. This space is divided between private LLMs and open-source LLMs.
-* **Open-source LLMs**: The Hugging Face Hub is a great place to find LLMs. You can directly run some of them in Hugging Face Spaces, or download and run them locally in apps like LM Studio or through the CLI with llama.cpp or ollama.
-* **Prompt engineering**: Common techniques include zero-shot prompting, few-shot prompting, chain of thought, and ReAct. They work better with bigger models, but can be adapted to smaller ones.
-* **Structuring outputs**: Many tasks require a structured output, like a strict template or a JSON format. Libraries like Outlines can be used to guide the generation and respect a given structure. Some APIs also support structured output generation natively using JSON schemas.
-
----
-### 2. Deploying LLMs
+### 1. Deploying LLMs
 
 Deploying LLMs at scale is an engineering feat that can require multiple clusters of GPUs. In other scenarios, demos and local apps can be achieved with much lower complexity. 
 
+* **LLM APIs**: APIs are a convenient way to deploy LLMs. This space is divided between private LLMs and open-source LLMs.
 * **Local deployment**: Privacy is an important advantage that open-source LLMs have over private ones. Local LLM servers (llama.cpp, ollama, LM Studio, oobabooga, kobold.cpp, etc.) capitalize on this advantage to power local apps. 
 * **Demo deployment**: Frameworks like Gradio and Streamlit are helpful to prototype applications and share demos. You can also easily host them online, for example, using Hugging Face Spaces.
 * **Server deployment**: Deploying LLMs at scale requires cloud (see also [SkyPilot](https://skypilot.readthedocs.io/en/latest/)) or on-prem infrastructure and often leverages optimized text generation frameworks like [TGI](https://github.com/huggingface/text-generation-inference), vLLM, etc.
@@ -305,6 +296,18 @@ Deploying LLMs at scale is an engineering feat that can require multiple cluster
 📚 **References**:
 * [Philschmid blog](https://www.philschmid.de/) by Philipp Schmid: Collection of high-quality articles about LLM deployment using Amazon SageMaker.
 * [Optimizing latence](https://hamel.dev/notes/llm/inference/03_inference.html) by Hamel Husain: Comparison of TGI, vLLM, CTranslate2, and mlc in terms of throughput and latency.
+
+---
+### 2. Prompts
+
+In any case, additional prompting and guidance techniques can improve and constrain the output for your applications.
+
+* **Prompt engineering**: Common techniques include zero-shot prompting, few-shot prompting, chain of thought, and ReAct. They work better with bigger models, but can be adapted to smaller ones.
+* **Structuring outputs**: Many tasks require a structured output, like a strict template or a JSON format. Libraries like Outlines can be used to guide the generation and respect a given structure. Some APIs also support structured output generation natively using JSON schemas.
+* **Program LLMs**: Frameworks like [DSPy](https://github.com/stanfordnlp/dspy) allow you to optimize prompts and weights based on automated evaluations in a programmatic way.
+
+📚 **References**:
+* [DSPy in 8 Steps](https://dspy-docs.vercel.app/docs/building-blocks/solving_your_task): General-purpose guide to DSPy introducing modules, signatures, and optimizers.
 
 ---
 ### 3. Securing LLMs
@@ -328,8 +331,13 @@ An LLM agent can autonomously perform tasks by taking actions based on reasoning
 
 * **Agent fundamentals**: Agents operate using thoughts (internal reasoning to decide what to do next), action (executing tasks, often by interacting with external tools), and observation (analyzing feedback or results to refine the next step).
 * **Agent protocols**: Model Context Protocol (MCP) is the industry standard for connecting agents to external tools and data sources with MCP servers and clients. More recently, [Agent2Agent](https://a2a-protocol.org/) (A2A) tries to standardize a common language for agent interoperability.
+* **Tools**: Agents augment LLMs by automatically selecting the most relevant tools to provide an answer. These tools can be as simple as using Google or Wikipedia, or more complex, like a Python interpreter or Jira.
 * **Vendor frameworks**: Each major cloud model provider has its own agentic framework with OpenAI SDK, Google ADK, and [Claude Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) if you're particularly tied to one vendor.
 * **Other frameworks**: Agent development can be streamlined using different frameworks like LangGraph (design and visualization of workflows) LlamaIndex (data-augmented agents with RAG), or custom solutions. More experimental frameworks include collaboration between different agents, such as CrewAI (role-based team workflows) and AutoGen (conversation-driven multi-agent systems).
+
+📚 **References**:
+* [Pinecone - LLM agents](https://www.pinecone.io/learn/series/langchain/langchain-agents/): Introduction to agents and tools with different types.
+* [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) by Lilian Weng: A more theoretical article about LLM agents.
 
 ---
 ### 5. RAG
@@ -339,33 +347,22 @@ Creating a vector storage is the first step to building a Retrieval Augmented Ge
 * **Ingesting documents**: Document loaders are convenient wrappers that can handle many formats: PDF, JSON, HTML, Markdown, etc. They can also directly retrieve data from some databases and APIs (GitHub, Reddit, Google Drive, etc.).
 * **Splitting documents**: Text splitters break down documents into smaller, semantically meaningful chunks. Instead of splitting text after *n* characters, it's often better to split by header or recursively, with some additional metadata.
 * **Embedding models**: Embedding models convert text into vector representations. Picking task-specific models significantly improves performance for semantic search and RAG.
-* **Vector databases**: Vector databases (like [Chroma](https://www.trychroma.com/), [Pinecone](https://www.pinecone.io/), [Milvus](https://milvus.io/), [FAISS](https://faiss.ai/), [Annoy](https://github.com/spotify/annoy), etc.) are designed to store embedding vectors. They enable efficient retrieval of data that is 'most similar' to a query based on vector similarity.
+* **Vector databases**: Vector databases are designed to store embedding vectors. They enable efficient retrieval of data that is 'most similar' to a query based on vector similarity.
 
-📚 **References**:
-* [Sentence Transformers library](https://www.sbert.net/): Popular library for embedding models.
+With RAG, LLMs retrieve contextual documents from a database to improve the accuracy of their answers. RAG is a popular way of augmenting the model's knowledge without any fine-tuning.Real-life applications can require complex pipelines, including SQL or graph databases, as well as automatically selecting relevant tools and APIs. These advanced techniques can improve a baseline solution and provide additional features.
 
-With RAG, LLMs retrieve contextual documents from a database to improve the accuracy of their answers. RAG is a popular way of augmenting the model's knowledge without any fine-tuning.
-
-* **Orchestrators**: Orchestrators like LangChain and LlamaIndex are popular frameworks to connect your LLMs with tools and databases. The Model Context Protocol (MCP) introduces a new standard to pass data and context to models across providers.
-* **Retrievers**: Query rewriters and generative retrievers like CoRAG and HyDE enhance search by transforming user queries. Multi-vector and hybrid retrieval methods combine embeddings with keyword signals to improve recall and precision.
 * **Memory**: To remember previous instructions and answers, LLMs and chatbots like ChatGPT add this history to their context window. This buffer can be improved with summarization (e.g., using a smaller LLM), a vector store + RAG, etc.
+* **Query construction**: Structured data stored in traditional databases requires a specific query language like SQL, Cypher, metadata, etc. We can directly translate the user instruction into a query to access the data with query construction.
+* **Retrieval**: Query rewriters and generative retrievers like CoRAG and HyDE enhance search by transforming user queries. Multi-vector and hybrid retrieval methods combine embeddings with keyword signals to improve recall and precision.
+* **Post-processing**: Final step that processes the inputs that are fed to the LLM. It enhances the relevance and diversity of documents retrieved with re-ranking, [RAG-fusion](https://github.com/Raudaschl/rag-fusion), and classification.
+* **Generation**:Feed the core references, memories of historic chats and final prompt to the LLM,then LLM output the results.
+
 * **Evaluation**: We need to evaluate both the document retrieval (context precision and recall) and the generation stages (faithfulness and answer relevancy). It can be simplified with tools [Ragas](https://github.com/explodinggradients/ragas/tree/main) and [DeepEval](https://github.com/confident-ai/deepeval) (assessing quality).
 
-📚 **References**:
-* [Pinecone - Retrieval Augmentation](https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/): Overview of the retrieval augmentation process. 
-* [RAG pipeline - Metrics](https://docs.ragas.io/en/stable/concepts/metrics/index.html): Overview of the main metrics used to evaluate RAG pipelines.
-
-Real-life applications can require complex pipelines, including SQL or graph databases, as well as automatically selecting relevant tools and APIs. These advanced techniques can improve a baseline solution and provide additional features.
-
-* **Query construction**: Structured data stored in traditional databases requires a specific query language like SQL, Cypher, metadata, etc. We can directly translate the user instruction into a query to access the data with query construction.
-* **Tools**: Agents augment LLMs by automatically selecting the most relevant tools to provide an answer. These tools can be as simple as using Google or Wikipedia, or more complex, like a Python interpreter or Jira. 
-* **Post-processing**: Final step that processes the inputs that are fed to the LLM. It enhances the relevance and diversity of documents retrieved with re-ranking, [RAG-fusion](https://github.com/Raudaschl/rag-fusion), and classification.
-* **Program LLMs**: Frameworks like [DSPy](https://github.com/stanfordnlp/dspy) allow you to optimize prompts and weights based on automated evaluations in a programmatic way.
 
 📚 **References**:
 * [LangChain - Query Construction](https://blog.langchain.dev/query-construction/): Blog post about different types of query construction.
-* [Pinecone - LLM agents](https://www.pinecone.io/learn/series/langchain/langchain-agents/): Introduction to agents and tools with different types.
-* [LLM Powered Autonomous Agents](https://lilianweng.github.io/posts/2023-06-23-agent/) by Lilian Weng: A more theoretical article about LLM agents.
+* [Pinecone - Retrieval Augmentation](https://www.pinecone.io/learn/series/langchain/langchain-retrieval-augmentation/): Overview of the retrieval augmentation process. 
+* [RAG pipeline - Metrics](https://docs.ragas.io/en/stable/concepts/metrics/index.html): Overview of the main metrics used to evaluate RAG pipelines.
 * [LangChain - OpenAI's RAG](https://blog.langchain.dev/applying-openai-rag/): Overview of the RAG strategies employed by OpenAI, including post-processing.
-* [DSPy in 8 Steps](https://dspy-docs.vercel.app/docs/building-blocks/solving_your_task): General-purpose guide to DSPy introducing modules, signatures, and optimizers.
 </details>
